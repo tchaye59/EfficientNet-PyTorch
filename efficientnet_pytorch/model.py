@@ -500,7 +500,7 @@ class EfficientNetAutoEncoder(EfficientNet):
 
         # Head
         in_channels = round_filters(32, self._global_params)  # number of output channels
-        out_channels = 3  # rgb
+        out_channels = 1  # rgb
         TransposedConv2d = get_same_padding_conv2d(image_size=global_params.image_size, transposed=True)
         self._decoder_conv_head = TransposedConv2d(in_channels, out_channels, kernel_size=3, stride=2, bias=False)
         self._decoder_bn1 = nn.BatchNorm2d(num_features=out_channels, momentum=bn_mom, eps=bn_eps)
